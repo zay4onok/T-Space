@@ -20,6 +20,23 @@ img {
   vertical-align: bottom;
 }
 
+button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  border: none;
+  background-color: #0038ff;
+  cursor: pointer;
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 40px;
+  text-align: center;
+  flex: 1;
+  transition: all 0.3s;
+}
+button:hover {
+  opacity: 0.8;
+}
+
 .body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -34,6 +51,12 @@ img {
   margin: 0 auto;
 }
 
+.header {
+  font-family: "Roboto", sans-serif;
+  position: fixed;
+  width: 100%;
+  height: 71px;
+}
 .header__inner {
   background-color: #262626;
   display: flex;
@@ -42,6 +65,7 @@ img {
   padding: 0 20px;
 }
 .header__left {
+  cursor: pointer;
   margin-top: 23.5px;
   margin-bottom: 22.5px;
   display: flex;
@@ -58,7 +82,7 @@ img {
   display: inline-block;
   font-size: 12px;
   line-height: 15px;
-  font-weight: 500;
+  font-weight: 400;
   color: #fff;
   position: relative;
   z-index: 1;
@@ -78,6 +102,7 @@ img {
 .header__info {
   margin-top: 17px;
   margin-bottom: 16px;
+  cursor: pointer;
 }
 .header__info-title {
   font-family: "Roboto", sans-serif;
@@ -105,7 +130,6 @@ img {
   display: block;
 }
 .header__info-subtitle {
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
@@ -113,6 +137,7 @@ img {
   text-align: center;
 }
 .header__logo {
+  cursor: pointer;
   margin-top: 17.5px;
   margin-bottom: 16.5px;
 }
@@ -120,4 +145,86 @@ img {
   width: 36px;
   height: 36px;
   vertical-align: bottom;
+}
+
+.main {
+  font-family: "Roboto", sans-serif;
+}
+.main__inner {
+  background-image: url(../images/main-bg.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #000;
+  height: 670px;
+  overflow-y: auto;
+  padding: 0 20px;
+}
+.main__date {
+  width: 70px;
+  height: 23px;
+  background-color: rgba(108, 118, 139, 0.5019607843);
+  border-radius: 20px;
+  margin: 91px auto 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main__date-text {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 400;
+  color: #fff;
+}
+.main__message {
+  padding: 6px 12px 0 12px;
+  background-color: #d9e4ff;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.main__message.received {
+  max-width: 315px;
+}
+.main__message.received .tail {
+  position: absolute;
+  content: "";
+  left: -5px;
+  bottom: 0;
+}
+.main__message.sent {
+  padding: 14px 28px 15px 24px;
+  max-width: 315px;
+  display: inline-block;
+  float: right;
+}
+.main__message.sent .tail {
+  position: absolute;
+  content: "";
+  right: -4px;
+  bottom: 0;
+  transform: rotateY(180deg);
+}
+.main__message-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000;
+}
+.main__message-text.bold {
+  font-weight: 700;
+}
+.main__message-time {
+  text-align: right;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8e8e93;
+  padding-bottom: 6px;
+}
+.main__buttons {
+  max-width: 315px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
