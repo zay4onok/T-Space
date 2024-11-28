@@ -49,10 +49,10 @@ textArea.addEventListener("keydown", function (e) {
   }
 });
 
-const body = document.body;
+const messageInner = document.querySelector(".main__inner");
 
 function scrollBottom() {
-  window.scrollTo(0, document.body.scrollHeight);
+  messageInner.scrollTo(0, messageInner.scrollHeight);
 }
 
 const yesButton = document.querySelector(".yes-button");
@@ -85,7 +85,6 @@ noButton.addEventListener("click", function () {
   scrollBottom();
 
   // Тут типо дальше надо выводить форму и так далее
-
 });
 
 yesButton.addEventListener("click", function () {

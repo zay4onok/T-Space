@@ -163,7 +163,7 @@ body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 72px);
+  height: calc(100vh - 72px);
 }
 .main__date {
   width: 70px;
@@ -207,6 +207,7 @@ body {
   opacity: 0;
   transform: translate(0, 20px);
   transition: all 0.3s;
+  margin-bottom: 10px;
 }
 .main__message.--sent .tail {
   position: absolute;
@@ -261,6 +262,9 @@ body {
 
 .footer {
   font-family: "Roboto", sans-serif;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 .footer__inner {
   background-color: #262626;
