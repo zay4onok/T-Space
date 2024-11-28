@@ -219,6 +219,9 @@ body {
   opacity: 1;
   transform: translate(0, 0);
 }
+.main__message.long-margin {
+  margin-bottom: 30px;
+}
 .main__message-text {
   font-weight: 400;
   font-size: 16px;
@@ -248,6 +251,12 @@ body {
 .main__buttons.--show {
   opacity: 1;
   transform: translate(0, 0);
+}
+.main__buttons.triple {
+  flex-direction: column;
+}
+.main__buttons.triple button {
+  width: 100%;
 }
 
 .footer {

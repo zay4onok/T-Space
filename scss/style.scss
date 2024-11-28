@@ -223,6 +223,9 @@ body {
       opacity: 1;
       transform: translate(0, 0);
     }
+    &.long-margin {
+      margin-bottom: 30px;
+    }
     &-text {
       font-weight: 400;
       font-size: 16px;
@@ -252,6 +255,12 @@ body {
     &.--show {
       opacity: 1;
       transform: translate(0, 0);
+    }
+    &.triple {
+      flex-direction: column;
+      & button {
+        width: 100%;
+      }
     }
   }
 }
