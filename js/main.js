@@ -43,7 +43,7 @@ textArea.addEventListener("keydown", function (e) {
     let lastMessage = messageWrapper.lastElementChild;
     setTimeout(() => {
       lastMessage.classList.add("--show");
-    }, 100);
+    }, 0);
     textArea.value = "";
     scrollBottom();
   }
@@ -81,7 +81,7 @@ noButton.addEventListener("click", function () {
   let lastMessage = messageWrapper.lastElementChild;
   setTimeout(() => {
     lastMessage.classList.add("--show");
-  }, 100);
+  }, 0);
   scrollBottom();
 
   // Тут типо дальше надо выводить форму и так далее
