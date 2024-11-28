@@ -38,13 +38,14 @@ button {
   }
 }
 
-.body {
+body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #000;
   font-size: 16px;
   line-height: 19.2px;
+  background-color: #000;
 }
 
 .container {
@@ -55,6 +56,8 @@ button {
 .header {
   font-family: "Roboto", sans-serif;
   position: fixed;
+  top: -1px;
+  z-index: 999;
   width: 100%;
   height: 71px;
   &__inner {
@@ -106,7 +109,6 @@ button {
     margin-bottom: 16px;
     cursor: pointer;
     &-title {
-      font-family: "Roboto", sans-serif;
       font-weight: 600;
       font-size: 20px;
       line-height: 23.44px;
@@ -131,6 +133,7 @@ button {
       display: block;
     }
     &-subtitle {
+      font-family: "sf-pro-text-medium";
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
@@ -159,9 +162,9 @@ button {
     background-repeat: no-repeat;
     background-size: cover;
     background-color: #000;
-    height: 670px;
-    overflow-y: auto;
     padding: 0 20px;
+    overflow-y: auto;
+    min-height: calc(100vh - 72px);
   }
 
   &__date {
@@ -187,8 +190,11 @@ button {
     border-radius: 10px;
     position: relative;
     margin-bottom: 10px;
-    &.received {
+    &.--received {
       max-width: 315px;
+      opacity: 0;
+      transform: translate(0, 20px);
+      transition: all 0.3s;
       .tail {
         position: absolute;
         content: "";
@@ -196,11 +202,13 @@ button {
         bottom: 0;
       }
     }
-    &.sent {
+    &.--sent {
       padding: 14px 28px 15px 24px;
       max-width: 315px;
       display: inline-block;
       float: right;
+      opacity: 0;
+      transform: translate(0, 20px);
       .tail {
         position: absolute;
         content: "";
@@ -208,6 +216,10 @@ button {
         bottom: 0;
         transform: rotateY(180deg);
       }
+    }
+    &.--show {
+      opacity: 1;
+      transform: translate(0, 0);
     }
     &-text {
       font-weight: 400;
@@ -232,5 +244,62 @@ button {
     display: flex;
     align-items: center;
     gap: 10px;
+    opacity: 0;
+    transform: translate(0, 20px);
+    transition: all 0.3s;
+    &.--show {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+}
+
+.footer {
+  font-family: "Roboto", sans-serif;
+  &__inner {
+    background-color: #262626;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  &__clip {
+    padding: 15px 5px 25px 0;
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  &__form {
+    width: 100%;
+    margin: 10px 0 20px 0;
+    background-color: #39393c;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-input {
+      outline: none;
+      width: 100%;
+      padding: 11px 0px 10px 15px;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      &::placeholder {
+        font-family: "Roboto", sans-serif;
+      }
+    }
+    &-sticker {
+      margin: 10px 15px 10px 10px;
+      cursor: pointer;
+    }
+  }
+
+  &__microphone {
+    padding: 15px 0 25px 5px;
+    svg {
+      cursor: pointer;
+    }
   }
 }

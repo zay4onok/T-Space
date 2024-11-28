@@ -37,13 +37,14 @@ button:hover {
   opacity: 0.8;
 }
 
-.body {
+body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #000;
   font-size: 16px;
   line-height: 19.2px;
+  background-color: #000;
 }
 
 .container {
@@ -54,6 +55,8 @@ button:hover {
 .header {
   font-family: "Roboto", sans-serif;
   position: fixed;
+  top: -1px;
+  z-index: 999;
   width: 100%;
   height: 71px;
 }
@@ -105,7 +108,6 @@ button:hover {
   cursor: pointer;
 }
 .header__info-title {
-  font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: 20px;
   line-height: 23.44px;
@@ -130,6 +132,7 @@ button:hover {
   display: block;
 }
 .header__info-subtitle {
+  font-family: "sf-pro-text-medium";
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
@@ -156,9 +159,9 @@ button:hover {
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #000;
-  height: 670px;
-  overflow-y: auto;
   padding: 0 20px;
+  overflow-y: auto;
+  min-height: calc(100vh - 72px);
 }
 .main__date {
   width: 70px;
@@ -183,27 +186,36 @@ button:hover {
   position: relative;
   margin-bottom: 10px;
 }
-.main__message.received {
+.main__message.--received {
   max-width: 315px;
+  opacity: 0;
+  transform: translate(0, 20px);
+  transition: all 0.3s;
 }
-.main__message.received .tail {
+.main__message.--received .tail {
   position: absolute;
   content: "";
   left: -5px;
   bottom: 0;
 }
-.main__message.sent {
+.main__message.--sent {
   padding: 14px 28px 15px 24px;
   max-width: 315px;
   display: inline-block;
   float: right;
+  opacity: 0;
+  transform: translate(0, 20px);
 }
-.main__message.sent .tail {
+.main__message.--sent .tail {
   position: absolute;
   content: "";
   right: -4px;
   bottom: 0;
   transform: rotateY(180deg);
+}
+.main__message.--show {
+  opacity: 1;
+  transform: translate(0, 0);
 }
 .main__message-text {
   font-weight: 400;
@@ -227,4 +239,61 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 10px;
+  opacity: 0;
+  transform: translate(0, 20px);
+  transition: all 0.3s;
+}
+.main__buttons.--show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.footer {
+  font-family: "Roboto", sans-serif;
+}
+.footer__inner {
+  background-color: #262626;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+.footer__clip {
+  padding: 15px 5px 25px 0;
+}
+.footer__clip svg {
+  cursor: pointer;
+}
+.footer__form {
+  width: 100%;
+  margin: 10px 0 20px 0;
+  background-color: #39393c;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__form-input {
+  outline: none;
+  width: 100%;
+  padding: 11px 0px 10px 15px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+}
+.footer__form-input::-moz-placeholder {
+  font-family: "Roboto", sans-serif;
+}
+.footer__form-input::placeholder {
+  font-family: "Roboto", sans-serif;
+}
+.footer__form-sticker {
+  margin: 10px 15px 10px 10px;
+  cursor: pointer;
+}
+.footer__microphone {
+  padding: 15px 0 25px 5px;
+}
+.footer__microphone svg {
+  cursor: pointer;
 }
