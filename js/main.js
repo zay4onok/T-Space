@@ -4,12 +4,14 @@ let buttons = document.querySelectorAll(".main__buttons");
 messages.forEach((message, index) => {
   setTimeout(() => {
     message.classList.add("--show");
+    message.scrollIntoView({ behavior: "smooth", block: "end" });
   }, index * 1000);
 });
 
 buttons.forEach((button) => {
   setTimeout(() => {
     button.classList.add("--show");
+    button.scrollIntoView({ behavior: "smooth", block: "end" });
   }, 4000);
 });
 
@@ -40,12 +42,14 @@ textArea.addEventListener("keydown", function (e) {
             </svg>
           </div>`;
     messageWrapper.insertAdjacentHTML("beforeend", message);
+
     let lastMessage = messageWrapper.lastElementChild;
     setTimeout(() => {
       lastMessage.classList.add("--show");
     }, 0);
     textArea.value = "";
-    scrollBottom();
+
+    lastMessage.scrollIntoView({ behavior: "smooth", block: "end" });
   }
 });
 
@@ -77,12 +81,14 @@ noButton.addEventListener("click", function () {
               />
             </svg>
           </div>`;
+
   messageWrapper.insertAdjacentHTML("beforeend", message);
   let lastMessage = messageWrapper.lastElementChild;
   setTimeout(() => {
     lastMessage.classList.add("--show");
   }, 0);
-  scrollBottom();
+
+  lastMessage.scrollIntoView({ behavior: "smooth", block: "end" });
 
   // Тут типо дальше надо выводить форму и так далее
 });
