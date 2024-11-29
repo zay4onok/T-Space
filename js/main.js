@@ -298,7 +298,7 @@ function checkPhone(phone) {
       return false;
     }
   }
-  if (phone.length < 12) {
+  if (phone.replace(/\s+/g, "").length < 12) {
     return false;
   }
   return true;
@@ -320,3 +320,22 @@ name.addEventListener("input", validateForm);
 lastName.addEventListener("input", validateForm);
 email.addEventListener("input", validateForm);
 phone.addEventListener("input", validateForm);
+
+function clickButton(event) {
+  event.preventDefault();
+
+  const info = {
+    name: name.value,
+    lastName: lastName.value,
+    email: email.value,
+    phone: phone.value,
+  };
+
+  localStorage.setItem("info", JSON.stringify(info));
+
+  window.location.href = "success.html";
+
+  console.log(info);
+}
+
+submit.addEventListener("click", clickButton);
