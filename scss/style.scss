@@ -53,6 +53,10 @@ body {
   margin: 0 auto;
 }
 
+.wrapper {
+  height: 100vh;
+}
+
 .registration-popup {
   opacity: 0;
   transform: scale(0.9);
