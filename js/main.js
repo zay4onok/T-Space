@@ -199,8 +199,124 @@ yesButton.addEventListener("click", function () {
             });
             scrollBottom();
           }, 0);
+          setTimeout(() => {
+            const popup = document.querySelector(".registration-popup");
+            popup.classList.add("--show");
+          }, 4000);
         });
       });
     });
   });
 });
+
+const name = document.querySelector(".name");
+const lastName = document.querySelector(".lastname");
+const email = document.querySelector(".email");
+const phone = document.querySelector(".phone");
+const submit = document.querySelector(".submit");
+
+function checkNameLastName() {
+  if (
+    name.value.trim() !== "" &&
+    lastName.value.trim() !== "" &&
+    name.value.length > 3 &&
+    lastName.value.length > 3
+  ) {
+    return true;
+  }
+}
+
+function checkEmail(email) {
+  const atSymbolCount = email.split("@").length - 1;
+  if (atSymbolCount !== 1) {
+    return false;
+  }
+  const atSymbolIndex = email.indexOf("@");
+  const localPart = email.slice(0, atSymbolIndex);
+  const domainPart = email.slice(atSymbolIndex + 1);
+
+  if (!localPart || !domainPart) {
+    return false;
+  }
+
+  const dotIndex = domainPart.indexOf(".");
+  if (dotIndex === -1 || dotIndex === 0 || dotIndex === domainPart.length - 1) {
+    return false;
+  }
+
+  const invalidChars = [
+    " ",
+    ",",
+    "!",
+    "#",
+    "$",
+    "%",
+    "^",
+    "&",
+    "*",
+    "(",
+    ")",
+    "=",
+    "+",
+    "{",
+    "}",
+    "[",
+    "]",
+    ";",
+    ":",
+    "'",
+    '"',
+    "<",
+    ">",
+    "/",
+    "\\",
+    "|",
+    "`",
+    "~",
+  ];
+  for (let char of email) {
+    if (invalidChars.includes(char)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function checkPhone(phone) {
+  phone = phone.trim();
+  if (phone.length === 0) {
+    return false;
+  }
+  let startIndex = 0;
+  if (phone[0] === "+") {
+    startIndex = 1;
+  } else {
+    return false;
+  }
+  for (let i = startIndex; i < phone.length; i++) {
+    if (isNaN(phone[i])) {
+      return false;
+    }
+  }
+  if (phone.length < 12) {
+    return false;
+  }
+  return true;
+}
+
+function validateForm() {
+  const isNameValid = checkNameLastName(name.value);
+  const isLastNameValid = checkNameLastName(lastName.value);
+  const isEmailValid = checkEmail(email.value);
+  const isPhoneValid = checkPhone(phone.value);
+  console.log(isNameValid, isLastNameValid, isEmailValid, isPhoneValid);
+  submit.disabled = true;
+  if (isNameValid && isLastNameValid && isEmailValid && isPhoneValid) {
+    submit.disabled = false;
+  }
+}
+
+name.addEventListener("input", validateForm);
+lastName.addEventListener("input", validateForm);
+email.addEventListener("input", validateForm);
+phone.addEventListener("input", validateForm);

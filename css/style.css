@@ -55,7 +55,7 @@ body {
 .registration-popup {
   opacity: 0;
   transform: scale(0.9);
-  pointer-events: none;
+  visibility: hidden;
   transition: all 0.3s;
   position: fixed;
   z-index: 999;
@@ -71,10 +71,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-.registration-popup.show {
+.registration-popup.--show {
   opacity: 1;
   transform: scale(1);
-  pointer-events: auto;
+  visibility: visible;
 }
 .registration-popup__wrapper {
   text-align: center;
@@ -117,6 +117,10 @@ body {
   display: block;
   margin: 0 auto;
   width: 100%;
+}
+.registration-popup__form .submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .header {
